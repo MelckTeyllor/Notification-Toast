@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+   
+    <title>Toast Notification</title>
+</head>
+<body>
+    <div class="buttons">
+        <button onclick="showToast(sucessMsg)">Sucesso</button>
+        <button onclick="showToast(erroMsg)">Error</button>
+        <button onclick="showToast(invalidMsg )">Inválido</button>
+    </div>
+
+    <div id="toastBox"></div>
+
+
+    <script>
+        let toastBox = document.getElementById('toastBox');
+
+        let sucessMsg =  'Enviado com sucesso!'
+        let erroMsg = 'Por favor corrija o erro!'
+        let invalidMsg = 'Entrada inválida, verifique novamente!'
+
+        function showToast(msg){
+            let toast = document.createElement('div');
+            toast.classList.add('toast');
+            toast.innerHTML = msg;
+            toastBox.appendChild(toast);
+            
+            
+            if(msg.includes('erro')){
+                toast.classList.add('erro');
+            }
+            if(msg.includes('inválida')){
+                toast.classList.add('invalid');
+            }
+            
+            setTimeout(() => {
+                toast.remove();
+            },6000)
+        }
+    </script>
+</body>
+</html>

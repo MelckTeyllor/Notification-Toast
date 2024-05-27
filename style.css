@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(121, 121, 121);
+}
+
+.buttons {
+    margin: 50px;
+}
+
+.buttons button {
+    font-size: 1rem;
+    width: 120px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    color: #fff;
+    outline: 0;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+.buttons button:hover {
+    font-size: 1rem;
+    color: black;
+    background-color: #fff;
+}
+
+#toastBox {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 80px;
+    background-color: #ffffffc8;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-weight: 500;
+    margin: 15px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transform: translateX(100%);
+    animation: moveleft 0.6s linear forwards;
+}
+
+@keyframes moveleft {
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.toast::after {
+    content: '';
+    position: absolute;
+    border-radius: 15px;
+    left: 0;
+    bottom: 0;
+    width: 400px;
+    height: 5px;
+    background-color: green;
+    animation: anim 5s linear forwards;
+}
+
+@keyframes anim {
+    100% {
+        width: 0;
+    } 
+}
+
+.toast.erro::after {
+    background-color: red;
+}
+
+.toast.invalid::after {
+    background-color: orange;
+}
